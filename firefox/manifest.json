@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Anti YouTube Shorts",
+  "version": "1.0",
+
+  "description": "Replaces a YouTube Short with its video format.",
+
+  "icons": {
+    "48": "icons/anti-youtube-shorts-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
