@@ -1,2 +1,2 @@
 # Anti YouTube Shorts
-Anti YouTube Shorts changes a YouTube Short to its video format.
+Anti YouTube Shorts changes a YouTube Short to its video format on youtube.com.
