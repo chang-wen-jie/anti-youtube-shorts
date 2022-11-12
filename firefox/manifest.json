@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Anti YouTube Shorts",
+  "name": "YouTube Shorts Blocker",
   "version": "1.0",
 
   "description": "Replaces a YouTube Short with its video format.",
 
   "icons": {
-    "48": "icons/anti-youtube-shorts-48.png"
+    "48": "icons/youtube-shorts-blocker-48.png"
   },
 
   "content_scripts": [
