@@ -1,6 +1,7 @@
-document.addEventListener('navigation', replaceUrl);
+document.addEventListener('navigation-start', replaceUrl);
 
 if (document.body) replaceUrl();
+else document.addEventListener('DOMContentLoaded', replaceUrl);
 
 function replaceUrl() {
   if (!location.pathname.startsWith('/shorts')) {
