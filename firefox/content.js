@@ -1,4 +1,4 @@
-document.addEventListener('navigation-start', replaceUrl);
+document.addEventListener('yt-navigate-start', replaceUrl);
 
 if (document.body) replaceUrl();
 else document.addEventListener('DOMContentLoaded', replaceUrl);
@@ -8,8 +8,8 @@ function replaceUrl() {
     return;
   }
 
-  const urlOld = window.location.href;
-  const urlNew = urlOld.replace('shorts/', 'watch?v=');
+  var urlOld = window.location.href;
+  var urlNew = urlOld.replace('shorts/', 'watch?v=');
 
   window.location.replace(urlNew);
 }

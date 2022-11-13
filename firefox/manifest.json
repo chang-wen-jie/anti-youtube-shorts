@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "YouTube Shorts Blocker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Replaces a YouTube Short with its video counterpart.",
 
   "icons": {
@@ -9,16 +9,16 @@
     "96": "icons/youtube-shorts-blocker-96.png"
   },
 
-  "browser-action": {
-    "default-icon": "icons/youtube-shorts-blocker-32.png",
-    "default-title": "YouTube Shorts Blocker"
+  "browser_action": {
+    "default_icon": "icons/youtube-shorts-blocker-32.png",
+    "default_title": "YouTube Shorts Blocker",
+    "default_popup": "popup/index.html"
   },
 
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["content.js"],
-      "run_at": "document_start"
+      "js": ["content.js"]
     }
   ]
 }
