@@ -1,5 +1,5 @@
 # YouTube Shorts Blocker
-YouTube Shorts Blocker replaces a YouTube Short with its video counterpart on https://www.youtube.com/.
+YouTube Shorts Blocker replaces a YouTube Short with its video counterpart.
 
-# Add-On Page
+# Availability
 - [Firefox](https://addons.mozilla.org/nl/firefox/addon/youtube-shorts-blocker/)
