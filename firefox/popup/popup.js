@@ -5,10 +5,7 @@ const isFirefox = typeof window.browser !== 'undefined';
 const browser = isFirefox ? window.browser : window.chrome;
 
 var onOff = document.querySelector('input[name=checkbox_ad]');
-var blockingMessage = document.querySelector('input[name=checkbox_ad_msg]');
-var forcedQuality = document.querySelector('select[name=dropdown_forced_quality]');
 var proxy = document.querySelector('select[name=dropdown_proxy]');
-var proxyQuality = document.querySelector('select[name=dropdown_proxy_quality]');
 
 var allSettingsElements = [onOff,blockingMessage,forcedQuality,proxy,proxyQuality];
 
@@ -22,18 +19,12 @@ for (var i = 0; i < allSettingsElements.length; i++) {
 
 function saveOptions() {
     chrome.storage.local.set({onOffTTV: onOff.checked ? 'true' : 'false'});
-    chrome.storage.local.set({blockingMessageTTV: blockingMessage.checked ? 'true' : 'false'});
-    //chrome.storage.local.set({forcedQualityTTV: forcedQuality.options[forcedQuality.selectedIndex].text});
     chrome.storage.local.set({proxyTTV: proxy.options[proxy.selectedIndex].text});
-    chrome.storage.local.set({proxyQualityTTV: proxyQuality.options[proxyQuality.selectedIndex].text});
 }
 
 function restoreOptions() {
     restoreToggle('onOffTTV', onOff);
-    restoreToggle('blockingMessageTTV', blockingMessage);
-    //restoreDropdown('forcedQualityTTV', forcedQuality);
     restoreDropdown('proxyTTV', proxy);
-    restoreDropdown('proxyQualityTTV', proxyQuality);
 }
 
 function restoreToggle(name, toggle) {
