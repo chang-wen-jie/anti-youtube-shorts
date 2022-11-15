@@ -1,82 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouTube Shorts Blocker</title>
-    <style>
-        @font-face {
-            font-family: Inter Regular;
-            src: url(../fonts/Inter-Regular.ttf);
-        }
-
-        @font-face {
-            font-family: Inter SemiBold;
-            src: url(../fonts/Inter-SemiBold.ttf);
-        }
-
-        :root {
-            --primary: #f0f0f2;
-            --secondary: #1b1b23;
-            --font-1: Inter Regular;
-            --font-2: Inter SemiBold;
-        }
-
-        html, body {
-            width: 240px;
-            background-color: var(--secondary);
-            font-family: var(--font-1);
-            color: var(--primary);
-        }
-
-        .p1 {
-            font-size: 14px;
-        }
-
-        .p1 a {
-            text-decoration: none;
-            color: var(--primary)
-        }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            height: 140px;
-            width: 140px;
-            border-radius: 20px;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ff5c5c;
-            transition: 0.4s;
-        }
-
-        .slider.round {
-            border-radius: 100px;
-        }
-
-        input:checked + .slider {
-            background-color: #4cac74;
-        }
-    </style>
-</head>
-    <body>
-        <div id="popup-content">
-            <label class="switch">
-                <input type="checkbox" name="checkbox_ad" checked />
-                <span class="slider round"></span>
-            </label>
-            <p class="p1" style="text-align: center;">
-                <a href="https://github.com/chang-wen-jie/youtube-shorts-blocker">GitHub</a>
-            </p>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="outer-wrapper">
+        <div class="new-note">
+          <input type="text">
+          <textarea></textarea>
+          <button class="clear">Clear notes</button>
+          <button class="add">Add note</button>
+          <div class="clearfix"></div>
         </div>
-        <script src="popup.js"></script>
-    </body>
+        
+        <div class="note-container">
+     
+        </div>
+      </div>
+      
+    <script src="popup.js"></script>
+  </body>
 </html>

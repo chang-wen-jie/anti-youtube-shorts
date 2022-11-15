@@ -1,3 +1,5 @@
+/* replace video pathname */
+
 document.addEventListener('yt-navigate-start', replaceUrl);
 
 if (document.body) replaceUrl();
