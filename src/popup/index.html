@@ -42,7 +42,9 @@
         .switch {
             position: relative;
             display: inline-block;
-            width: 42px;
+            height: 140px;
+            width: 140px;
+            border-radius: 20px;
         }
 
         .slider {
@@ -56,48 +58,25 @@
             transition: 0.4s;
         }
 
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 14px;
-            width: 14px;
-            left: 5px;
-            bottom: 3px;
-            background-color: #fff;
-            transition: 0.4s;
+        .slider.round {
+            border-radius: 100px;
         }
 
         input:checked + .slider {
             background-color: #4cac74;
         }
-
-        input:checked + .slider:before {
-            transform: translateX(18px);
-        }
-
-        .dropdown {
-            border: 0px;
-        }
     </style>
 </head>
-<body>
-    <div id="popup-content">
-        <label class="switch">
-            <input type="checkbox" name="checkbox_ad" checked />
-            <span class="slider round"></span>
-        </label>
-        <p class="p1">
-            Dropdown
-            <select class="dropdown" name="dropdown_proxy">
-                <option>FirstOption</option>
-                <option>SecondOption</option>
-            </select>
-        </p>
-        <p class="p1">Changes will be applied upon web page reload</p>
-        <p class="p1" style="text-align: center;">
-            <a href="https://github.com/chang-wen-jie/youtube-shorts-blocker">GitHub</a>
-        </p>
-    </div>
-    <script src="popup.js"></script>
-</body>
+    <body>
+        <div id="popup-content">
+            <label class="switch">
+                <input type="checkbox" name="checkbox_ad" checked />
+                <span class="slider round"></span>
+            </label>
+            <p class="p1" style="text-align: center;">
+                <a href="https://github.com/chang-wen-jie/youtube-shorts-blocker">GitHub</a>
+            </p>
+        </div>
+        <script src="popup.js"></script>
+    </body>
 </html>
