@@ -1,25 +1,12 @@
-/* initialise variables */
-
+/* Retrieve option settings */
 let inputTitle = document.querySelector('.new-note input');
 let inputBody = document.querySelector('.new-note textarea');
-
 let noteContainer = document.querySelector('.note-container');
+let saveButton = document.querySelector('.save-settings');
 
-let clearBtn = document.querySelector('.clear');
-let addBtn = document.querySelector('.add');
+saveButton.addEventListener('click', saveSettings);
 
-/*  add event listeners to buttons */
-
-addBtn.addEventListener('click', addNote);
-clearBtn.addEventListener('click', clearAll);
-
-/* generic error handler */
-function onError(error) {
-  console.log(error);
-}
-
-/* display previously-saved stored notes on startup */
-
+/* Get saved settings */
 initialize();
 
 function initialize() {
@@ -30,23 +17,14 @@ function initialize() {
       let curValue = results[noteKey];
       displayNote(noteKey, curValue);
     }
-  }, onError);
+  });
 }
 
-/* Add a note to the display, and storage */
-
-function addNote() {
+/* Save user settings */
+function saveSettings() {
   let noteTitle = inputTitle.value;
   let noteBody = inputBody.value;
-  let gettingItem = browser.storage.local.get(noteTitle);
-  gettingItem.then((result) => {
-    let objTest = Object.keys(result);
-    if (objTest.length < 1 && noteTitle !== '' && noteBody !== '') {
-      inputTitle.value = '';
-      inputBody.value = '';
-      storeNote(noteTitle, noteBody);
-    }
-  }, onError);
+  storeNote(noteTitle, noteBody);
 }
 
 /* function to store a new note in storage */
@@ -55,7 +33,7 @@ function storeNote(title, body) {
   let storingNote = browser.storage.local.set({ [title]: body });
   storingNote.then(() => {
     displayNote(title, body);
-  }, onError);
+  });
 }
 
 /* function to display a note in the note box */
@@ -159,18 +137,9 @@ function updateNote(delNote, newTitle, newBody) {
       let removingNote = browser.storage.local.remove(delNote);
       removingNote.then(() => {
         displayNote(newTitle, newBody);
-      }, onError);
+      });
     } else {
       displayNote(newTitle, newBody);
     }
-  }, onError);
-}
-
-/* Clear all notes from the display/storage */
-
-function clearAll() {
-  while (noteContainer.firstChild) {
-    noteContainer.removeChild(noteContainer.firstChild);
-  }
-  browser.storage.local.clear();
+  });
 }
