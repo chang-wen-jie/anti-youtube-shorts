@@ -1,10 +1,6 @@
-/* replace video pathname */
-
 document.addEventListener('yt-navigate-start', replaceUrl);
 
-if (document.body) replaceUrl();
-else document.addEventListener('DOMContentLoaded', replaceUrl);
-
+/* Replace YouTube shorts pathname */
 function replaceUrl() {
   if (!location.pathname.startsWith('/shorts')) return;
 
@@ -13,3 +9,9 @@ function replaceUrl() {
 
   window.location.replace(urlNew);
 }
+
+let storageItem = browser.storage.local.get(('enabledShorts'));
+  storageItem.then((res) => {
+    console.log('settingssssss', res);
+    console.log('??????????', res.enabledShorts);
+});
