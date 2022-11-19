@@ -4,7 +4,7 @@
   "name": "YouTube Configurator",
   "version": "1.0.3",
 
-  "description": "Configurate (unwanted) YouTube features that aren't listed in the settings page",
+  "description": "Configurate YouTube's (unwanted) behaviours with functions not listed in the settings page",
 
   "icons": {
     "48": "icons/icon_48.png",
