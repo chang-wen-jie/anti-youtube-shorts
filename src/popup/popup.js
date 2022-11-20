@@ -25,14 +25,9 @@ function storeSettings() {
 function getSettings() {
   let storageItem = browser.storage.local.get(('enabledShorts'));
   storageItem.then((res) => {
-    // if (res.enabledShorts === undefined) {
-    //   browser.storage.local.set({
-    //     enabledShorts: true
-    //   });
-    // }
     shorts.checked = res.enabledShorts
 
-    if (res.enabledShorts === true) document.querySelector('#shorts_state').innerText = "Disable Shorts";
-    else document.querySelector('#shorts_state').innerText = "Enable Shorts";
+    if (res.enabledShorts === true) document.querySelector('#shorts_state').innerText = "Shorts Enabled";
+    else document.querySelector('#shorts_state').innerText = "Shorts Disabled";
   });
 }

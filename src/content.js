@@ -1,3 +1,4 @@
+// WORDT STEEDS GETRIGGERD? STOP IN EEN FUNCTIE?
 var settings = {
   shorts: true
 }
@@ -16,26 +17,28 @@ function initialise() {
         browser.storage.local.set({
           enabledShorts: true
         })
-      } else if (!res.enabledShorts) {
-        settings.shorts = false;
       }
       console.log('wat is res', res);
-      console.log('wat is settings.shorts', settings.shorts);
+      console.log('wat is settings', settings);
   });
 }
 
 function configurate() {
+  let getSettings = browser.storage.local.get(('enabledShorts'));
+  getSettings.then((res) => {
+    settings.shorts = res.enabledShorts
+  });
   replaceUrl();
 }
 
 /* Replace YouTube shorts pathname */
 function replaceUrl() {
   if (!settings.shorts) {
-    if (!location.pathname.startsWith('/shorts')) return;
+    if (location.pathname.startsWith('/shorts')) {
+      var urlOld = window.location.href;
+      var urlNew = urlOld.replace('shorts/', 'watch?v=');
 
-    var urlOld = window.location.href;
-    var urlNew = urlOld.replace('shorts/', 'watch?v=');
-
-    window.location.replace(urlNew);
+      window.location.replace(urlNew);
+    }
   }
 }
