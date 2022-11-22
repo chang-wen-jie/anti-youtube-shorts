@@ -4,26 +4,29 @@ document.addEventListener('yt-navigate-start', configurate);
 if (document.body) configurate();
 else document.addEventListener('DOMContentLoaded', configurate);
 
-/* Initialise settings */
+/* Initialise and apply configurations */
 function initialise() { 
-  browser.storage.local.get(('enabledShorts')).then((res) => {
+  browser.storage.local.get(['enabledShorts', 'enabledEndCards']).then((res) => {
     if (res.enabledShorts === undefined) browser.storage.local.set({enabledShorts: true});
+    if (res.enabledEndCards === undefined) browser.storage.local.set({enabledEndCards: true});
     console.log('wat is res in ini', res);
   });
   configurate();
 }
 
-/* Apply configurations */
 function configurate() {
-  let storateItem = browser.storage.local.get(('enabledShorts'));
-  storateItem.then((res) => {
-    if (res.enabledShorts === false) replaceUrl();
+  browser.storage.local.get(['enabledShorts', 'enabledEndCards']).then((res) => {
+    if (!res.enabledShorts) disableShorts();
+    if (!res.enabledEndCards) disableEndCards();
     console.log('wat is res in confi', res);
   });
 }
 
-/* Replace YouTube shorts pathname */
-function replaceUrl() {
-  console.log("ben ik hier?")
+/* Disable features */
+function disableShorts() {
   if (location.pathname.startsWith('/shorts')) window.location.replace(window.location.href.replace('shorts/', 'watch?v='));
+}
+
+function disableEndCards() {
+  console.log("end cards disabled");
 }

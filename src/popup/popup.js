@@ -1,33 +1,33 @@
 document.addEventListener('DOMContentLoaded', getSettings);
 
 var shorts = document.querySelector('#shorts');
-var settings = [shorts];
+var endCards = document.querySelector('#end_cards');
 
-/* Detect setting changes */
+var settings = [shorts, endCards];
+
+/* Detect and save changed settings */
 for (var i = 0; i < settings.length; i++) {
   if (settings[i]) {
     settings[i].addEventListener('change', function() {
-      storeSettings()
+      saveSettings()
     });
   }
 }
 
-/* Store changed settings */
-function storeSettings() {
-  browser.storage.local.set({
-    enabledShorts: shorts.checked ? true : false
-  });
-  console.log("settings saved");
+function saveSettings() {
+  browser.storage.local.set({enabledShorts: shorts.checked ? true : false});
+  browser.storage.local.set({enabledEndCards: endCards.checked ? true : false});
   getSettings();
 }
 
-/* Get stored settings */
+/* Display settings' correct states */
 function getSettings() {
-  let storageItem = browser.storage.local.get(('enabledShorts'));
-  storageItem.then((res) => {
-    shorts.checked = res.enabledShorts
+  displaySettings('enabledShorts', shorts);
+  displaySettings('enabledEndCards', endCards);
+}
 
-    if (res.enabledShorts === true) document.querySelector('#shorts_state').innerText = "Shorts Enabled";
-    else document.querySelector('#shorts_state').innerText = "Shorts Disabled";
+function displaySettings(feature, state) {
+  browser.storage.local.get([feature], function(result) {
+    if (result[feature]) state.checked = result[feature];
   });
 }

@@ -1,5 +1,5 @@
 # YouTube Configurator
-YouTube Configurator is an extension that allows you to configurate the behaviour of YouTube with functions not listed in the settings page.
+YouTube Configurator is a browser extension that allows you to disable certain YouTube features that you otherwise wouldn't be able to.
 
 # Availability
 - [Firefox](https://addons.mozilla.org/nl/firefox/addon/youtube-shorts-blocker/) **OUTDATED**
