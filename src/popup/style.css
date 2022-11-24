@@ -9,14 +9,25 @@
 }
 
 :root {
-  --primary: #f0f0f2;
-  --secondary: #1b1b23;
+  --primary: #0f0f0f;
+  --secondary: #f1f1f1;
+  --tertiary: #272727;
   --font-1: Inter Regular;
   --font-2: Inter SemiBold;
 }
 
-html {
+html, body {
+  width: 250px;
   font-family: var(--font-1);
-  background: var(--secondary);
-  color: var(--primary)
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.info {
+  text-align: center;
+}
+
+.info a, a:visited {
+  text-decoration: none;
+  color: inherit;
 }

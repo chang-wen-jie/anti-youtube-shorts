@@ -28,5 +28,13 @@ function disableShorts() {
 }
 
 function disableEndCards() {
-  console.log("end cards disabled");
+  let css = `
+    div[class*="video-player"]:not(:hover) div[class^="ytp-ce"],
+    div[class*="ytp-autohide"] div[class^="ytp-ce"] {
+        display: none !important;
+    }
+  `;
+  let styleNode = document.createElement("style");
+  styleNode.appendChild(document.createTextNode(css));
+  (document.querySelector("head") || document.documentElement).appendChild(styleNode);
 }
