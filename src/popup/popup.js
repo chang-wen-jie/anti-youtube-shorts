@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', getSettings);
 
 var shorts = document.querySelector('#shorts');
-var endCards = document.querySelector('#end_cards');
+var endCards = document.querySelector('#end-cards');
 
 var settings = [shorts, endCards];
 

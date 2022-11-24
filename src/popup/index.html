@@ -8,26 +8,29 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div>
-      <img src="../icons/icon_full.png" alt="YouTube Configurator">
+    <img src="../icons/icon_full.png" alt="YouTube Configurator">
+
+    <div class="btn-container">
       <div>
         <input type="checkbox" id="shorts" />
         <label for="shorts">Shorts</label>
       </div>
 
       <div>
-        <input type="checkbox" id="end_cards" />
-        <label for="end_cards">End Cards</label>
+        <input type="checkbox" id="end-cards" />
+        <label for="end-cards">End Cards</label>
       </div>
-
-      <div class="info">
-        <p>Reload for changes to take place</p>
-        <p>
-            <a href="https://github.com/chang-wen-jie/youtube-configurator"><img src="github.png" alt="Github" height="42px" width="42px"></a>
-        </p>
-      </div>
-    
     </div>
+
+    <div class="info">
+      <p class="p1"><i>*Changes apply upon reload</i></p>
+      <p class="links">
+        <button>
+          <a href="https://github.com/chang-wen-jie/youtube-configurator">GitHub</a>
+        </button>
+      </p>
+    </div>
+    
     <script src="popup.js"></script>
   </body>
 </html>

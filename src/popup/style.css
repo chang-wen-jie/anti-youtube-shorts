@@ -1,33 +1,49 @@
 @font-face {
-  font-family: Inter Regular;
-  src: url(../fonts/Inter-Regular.ttf);
-}
-
-@font-face {
-  font-family: Inter SemiBold;
-  src: url(../fonts/Inter-SemiBold.ttf);
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
 }
 
 :root {
-  --primary: #0f0f0f;
-  --secondary: #f1f1f1;
-  --tertiary: #272727;
-  --font-1: Inter Regular;
-  --font-2: Inter SemiBold;
+  --background-primary: #0f0f0f;
+  --background-secondary: #272727;
+  --text: #f1f1f1;
+  --button: #272727;
+  --button-hover: #3f3f3f;
+  --font-1: Roboto;
 }
 
 html, body {
   width: 250px;
   font-family: var(--font-1);
-  background: var(--primary);
-  color: var(--secondary);
+  background: var(--background-primary);
+  color: var(--text);
+}
+
+.btn-container {
+  background-color: var(--background-secondary);
 }
 
 .info {
   text-align: center;
 }
 
+.p1 {
+  font-size: 15px;
+}
+
 .info a, a:visited {
+  color: var(--text);
   text-decoration: none;
-  color: inherit;
+}
+
+.info button {
+  background-color: var(--button);
+  border: none;
+  border-radius: 7.5px;
+  padding: 7.5px;
+}
+
+.info button:hover {
+  background-color: var(--button-hover);
+  cursor: pointer;
 }
