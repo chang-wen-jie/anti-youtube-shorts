@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', getSettings);
 
 var shorts = document.querySelector('#shorts');
-var endCards = document.querySelector('#end-cards');
+var cards = document.querySelector('#cards');
 
-var settings = [shorts, endCards];
+var settings = [shorts, cards];
 
-/* Detect and save changed settings */
+/* Detect setting changes */
 for (var i = 0; i < settings.length; i++) {
   if (settings[i]) {
     settings[i].addEventListener('change', function() {
@@ -15,19 +15,19 @@ for (var i = 0; i < settings.length; i++) {
 }
 
 function saveSettings() {
-  browser.storage.local.set({enabledShorts: shorts.checked ? true : false});
-  browser.storage.local.set({enabledEndCards: endCards.checked ? true : false});
+  browser.storage.local.set({shorts: { enabled: shorts.checked ? true : false }});
+  browser.storage.local.set({cards: { enabled: cards.checked ? true : false } });
   getSettings();
 }
 
-/* Display settings' correct states */
+/* Display setting states */
 function getSettings() {
-  displaySettings('enabledShorts', shorts);
-  displaySettings('enabledEndCards', endCards);
+  showSettings('shorts', shorts);
+  showSettings('cards', cards);
 }
 
-function displaySettings(feature, state) {
-  browser.storage.local.get([feature], function(result) {
-    if (result[feature]) state.checked = result[feature];
+function showSettings(setting, state) {
+  browser.storage.local.get([setting], function(result) {
+    if (result[setting]['enabled']) state.checked = result[setting]['enabled'];
   });
 }
