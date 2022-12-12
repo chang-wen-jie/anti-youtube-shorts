@@ -4,17 +4,17 @@
 }
 
 :root {
+  --font: Roboto;
   --background-primary: #0f0f0f;
   --background-secondary: #272727;
   --text: #f1f1f1;
   --button: #272727;
-  --button-hover: #3f3f3f;
-  --font-1: Roboto;
+  --hover: #3f3f3f;
 }
 
 html, body {
   width: 250px;
-  font-family: var(--font-1);
+  font-family: var(--font);
   background: var(--background-primary);
   color: var(--text);
 }
@@ -44,6 +44,6 @@ html, body {
 }
 
 .info button:hover {
-  background-color: var(--button-hover);
+  background-color: var(--hover);
   cursor: pointer;
 }

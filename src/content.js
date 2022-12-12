@@ -6,24 +6,36 @@ else document.addEventListener('DOMContentLoaded', configurate);
 
 /* Initialise settings */
 function initialise() {
-  browser.storage.local.get(['shorts', 'cards']).then((res) => {
-    if (res.shorts === undefined) browser.storage.local.set({shorts: { enabled: true }});
-    if (res.cards === undefined) browser.storage.local.set({cards: { enabled: true }});
+  browser.storage.local.get(['shorts', 'endCards']).then((res) => {
+    if (res.shorts === undefined)
+      browser.storage.local.set({ shorts: { enabled: true } });
+    if (res.endCards === undefined)
+      console.log("endCards undefined!");
+      browser.storage.local.set({
+        endCards: { enabled: true, /*showOnHover: false*/ },
+      });
+    if (res.showOnHover === undefined)
+    browser.storage.local.set({
+      showOnHover: false
+    });
   });
   configurate();
 }
 
 function configurate() {
-  browser.storage.local.get(['shorts', 'cards']).then((res) => {
+  browser.storage.local.get(['shorts', 'endCards']).then((res) => {
     if (!res.shorts['enabled']) disableShorts();
-    if (!res.cards['enabled']) disableEndCards(); 
+    if (!res.endCards['enabled']) disableEndCards();
     console.log('wat is res in confi', res);
   });
 }
 
 /* Disable settings */
 function disableShorts() {
-  if (location.pathname.startsWith('/shorts')) window.location.replace(window.location.href.replace('shorts/', 'watch?v='));
+  if (location.pathname.startsWith('/shorts'))
+    window.location.replace(
+      window.location.href.replace('shorts/', 'watch?v=')
+    );
 }
 
 function disableEndCards() {
@@ -33,7 +45,9 @@ function disableEndCards() {
         display: none !important;
     }
   `;
-  let styleNode = document.createElement("style");
+  let styleNode = document.createElement('style');
   styleNode.appendChild(document.createTextNode(css));
-  (document.querySelector("head") || document.documentElement).appendChild(styleNode);
+  (document.querySelector('head') || document.documentElement).appendChild(
+    styleNode
+  );
 }
