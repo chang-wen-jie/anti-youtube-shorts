@@ -12,12 +12,12 @@ function initialise() {
     if (res.endCards === undefined)
       console.log("endCards undefined!");
       browser.storage.local.set({
-        endCards: { enabled: true, /*showOnHover: false*/ },
+        endCards: { enabled: true, showOnHover: false },
       });
-    if (res.showOnHover === undefined)
-    browser.storage.local.set({
-      showOnHover: false
-    });
+    // if (res.showOnHover === undefined)
+    // browser.storage.local.set({
+    //   showOnHover: false
+    // });
   });
   configurate();
 }
